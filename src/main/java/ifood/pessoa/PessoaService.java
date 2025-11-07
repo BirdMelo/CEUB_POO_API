@@ -42,4 +42,11 @@ public class PessoaService {
     	
     	return pessoaRepository.save(pessoa);
     }
+    //DELETE
+    public void delete(Long id) {
+    	if(!pessoaRepository.existsById(id)) {
+    		throw new RuntimeException("Pessoa com id "+id+" não existe");
+    	}
+    	pessoaRepository.deleteById(id);
+    }
 }

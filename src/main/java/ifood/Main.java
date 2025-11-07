@@ -28,19 +28,19 @@ public class Main implements CommandLineRunner {
 //    	pessoaController.createPessoa(p1);
     	
     	//READ
-    	List<Pessoa> pessoas = pessoaController.listarPessoa();
-    	pessoas.forEach(pessoa -> {
-    		System.out.println("====================================");
-    		System.out.printf("%d° pessoa\nNome: %s\nCPF: %s\nEmail: %s\n",
-    				pessoa.getIdPessoa(), pessoa.getNome(), pessoa.getCpf(), pessoa.getEmail());
-    		System.out.println("====================================");
-    	});
+//    	List<Pessoa> pessoas = pessoaController.listarPessoa();
+//    	pessoas.forEach(pessoa -> {
+//    		System.out.println("====================================");
+//    		System.out.printf("%d° pessoa\nNome: %s\nCPF: %s\nEmail: %s\n",
+//    				pessoa.getIdPessoa(), pessoa.getNome(), pessoa.getCpf(), pessoa.getEmail());
+//    		System.out.println("====================================");
+//    	});
         //UPDATE
-    	Pessoa p2 = new Pessoa("Yuri", "123345goasnd", "yurisui@gmail.com", "11111111111");
-    	pessoaController.alterarPessoa(4l, p2);
+//    	Pessoa p2 = new Pessoa("Yuri", "123345goasnd", "yurisui@gmail.com", "11111111111");
+//    	pessoaController.alterarPessoa(4l, p2);
         
         //DELETE
-        
+//        pessoaController.excluirPessoa(5l);
 
     }
 }

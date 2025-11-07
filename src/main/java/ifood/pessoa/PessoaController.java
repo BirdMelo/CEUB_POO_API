@@ -3,6 +3,7 @@ package ifood.pessoa;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,6 +29,10 @@ public class PessoaController {
 	@PutMapping("/{id}")
 	public Pessoa alterarPessoa(@PathVariable Long id, @RequestBody Pessoa updatedPessoa) {
 		return pessoaService.alterar(id, updatedPessoa);
+	}
+	@DeleteMapping("/{id}")
+	public void excluirPessoa(@PathVariable Long id) {
+		pessoaService.delete(id);
 	}
 	
 }
