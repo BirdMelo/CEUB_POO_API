@@ -1,4 +1,4 @@
-package ifood.pessoa;
+package ifood.cliente;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -6,10 +6,11 @@ import org.hibernate.annotations.CreationTimestamp;
 import java.time.Instant;
 
 @Entity
-public class Pessoa {
+public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idPessoa;
+    @Column(name = "idCliente")
+    private Long idCliente;
     private String nome;
     private String senha_hash;
     private String email;
@@ -18,9 +19,9 @@ public class Pessoa {
     private Status_Conta status_conta;
     private String cpf;
     
-    public Pessoa() {}
+    public Cliente() {}
     //CREATE CONSTRUTOR
-    public Pessoa(String nome, String senha_hash, String email, String cpf) {
+    public Cliente(String nome, String senha_hash, String email, String cpf) {
     	this.nome = nome;
     	this.cpf = cpf;
     	this.email = email;
@@ -30,7 +31,7 @@ public class Pessoa {
     	this.data_cadastro = Instant.now();
     }
     //UPDATE CONSTRUTOR
-    public Pessoa(String nome, String senha_hash, String email, String cpf, Status_Conta status_Conta) {
+    public Cliente(String nome, String senha_hash, String email, String cpf, Status_Conta status_Conta) {
     	this.nome = nome;
     	this.cpf = cpf;
     	this.email = email;
@@ -39,12 +40,12 @@ public class Pessoa {
     	this.status_conta = status_Conta;
     }
 
-    public Long getIdPessoa() {
-        return idPessoa;
+    public Long getIdCliente() {
+        return idCliente;
     }
 
-    public void setIdPessoa(Long idPessoa) {
-        this.idPessoa = idPessoa;
+    public void setIdCliente(Long idcliente) {
+        this.idCliente = idcliente;
     }
 
     public String getNome() {

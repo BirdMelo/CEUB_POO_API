@@ -1,4 +1,4 @@
-package ifood.pessoa;
+package ifood.cliente;
 
 import java.util.List;
 
@@ -13,26 +13,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/pessoas")
-public class PessoaController {
+@RequestMapping("/api/Clientes")
+public class ClienteController {
 	@Autowired
-	private PessoaService pessoaService;
+	private ClienteService clienteService;
 	
 	@PostMapping
-	public Pessoa createPessoa(@RequestBody Pessoa pessoa) {
-		return pessoaService.salvar(pessoa);
+	public Cliente createCliente(@RequestBody Cliente Cliente) {
+		return clienteService.salvar(Cliente);
 	}
 	@GetMapping
-	public List<Pessoa> listarPessoa() {
-		return pessoaService.listarPessoa();
+	public List<Cliente> listarCliente() {
+		return clienteService.listarCliente();
 	}
 	@PutMapping("/{id}")
-	public Pessoa alterarPessoa(@PathVariable Long id, @RequestBody Pessoa updatedPessoa) {
-		return pessoaService.alterar(id, updatedPessoa);
+	public Cliente alterarCliente(@PathVariable Long id, @RequestBody Cliente updatedCliente) {
+		return clienteService.alterar(id, updatedCliente);
 	}
 	@DeleteMapping("/{id}")
-	public void excluirPessoa(@PathVariable Long id) {
-		pessoaService.delete(id);
+	public void excluirCliente(@PathVariable Long id) {
+		clienteService.delete(id);
 	}
 	
 }

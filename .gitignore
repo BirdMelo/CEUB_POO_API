@@ -1,2 +1,3 @@
 # Ignorar arquivos e pastas do Eclipse
 .metadata/
+/target/
