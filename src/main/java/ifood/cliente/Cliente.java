@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-import ifood.pedido.Pedido;
+//import ifood.pedido.Pedido;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -28,8 +28,8 @@ public class Cliente {
     private Instant data_cadastro;
     private Status_Conta status_conta;
     private String cpf;
-    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL) // Um Cliente tem Vários Pedidos
-    private List<Pedido> pedidos = new ArrayList<>();
+//    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL) // Um Cliente tem Vários Pedidos
+//    private List<Pedido> pedidos = new ArrayList<>();
     
     public Cliente() {}
     //CREATE CONSTRUTOR
