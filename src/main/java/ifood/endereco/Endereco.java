@@ -1,10 +1,16 @@
 package ifood.endereco;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import ifood.pedido.Pedido;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 @Entity
 public class Endereco {
 	@Id
@@ -17,7 +23,17 @@ public class Endereco {
 	private String complemento;
 	private String rua;
 	private String bairro;
+	@OneToMany(mappedBy = "endereco", cascade = CascadeType.ALL) // Um Endereco tem vários Pedidos
+    private List<Pedido> pedidos = new ArrayList<>();
 	
+	public List<Pedido> getPedidos() {
+		return pedidos;
+	}
+
+	public void setPedidos(List<Pedido> pedidos) {
+		this.pedidos = pedidos;
+	}
+
 	public Endereco() {}
 	
 	//CREATE Endereco

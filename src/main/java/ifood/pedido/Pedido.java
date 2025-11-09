@@ -3,8 +3,6 @@ package ifood.pedido;
 
 import java.time.Instant;
 
-import org.springframework.data.annotation.Id;
-
 import ifood.cliente.Cliente;
 import ifood.endereco.Endereco;
 import ifood.entregador.Entregador;
@@ -12,6 +10,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
@@ -42,11 +41,11 @@ public class Pedido {
 
 	public Pedido() {}
 	//Create Constructor
-	public Pedido(Double valorFrete, Double valorTotal, Double valorSubTotal, Instant data_hora_pedido) {
+	public Pedido(Double valorFrete, Double valorSubTotal) {
 		this.valorFrete = valorFrete;
-		this.valorTotal = valorTotal;
 		this.valorSubTotal = valorSubTotal;
 		
+		this.valorTotal = valorFrete + valorSubTotal;
 		this.data_hora_pedido = Instant.now();
 		this.status_pedido = Status_Pedido.Pendente;
 	}
