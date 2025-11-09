@@ -31,13 +31,13 @@ public class Cliente {
     	this.data_cadastro = Instant.now();
     }
     //UPDATE CONSTRUTOR
-    public Cliente(String nome, String senha_hash, String email, String cpf, Status_Conta status_Conta) {
+    public Cliente(String nome, String senha_hash, String email, String cpf, Status_Conta status_conta) {
     	this.nome = nome;
     	this.cpf = cpf;
     	this.email = email;
     	this.senha_hash = senha_hash;
     	
-    	this.status_conta = status_Conta;
+    	this.status_conta = status_conta;
     }
 
     public Long getIdCliente() {
