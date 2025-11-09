@@ -11,7 +11,7 @@ public class Endereco {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idEndereco;
 	private String cep;
-	@Column(length = 2)
+	@Column(columnDefinition = "CHAR", length = 2)
 	private String uf;
 	private String cidade;
 	private String complemento;

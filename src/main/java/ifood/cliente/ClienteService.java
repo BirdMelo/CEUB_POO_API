@@ -15,14 +15,14 @@ public class ClienteService {
         return clienteRepository.findAll();
     }
     //CREATE
-    public Cliente salvar(Cliente Cliente) {
-    	if(clienteRepository.existsByCpf(Cliente.getCpf())) {
+    public Cliente salvar(Cliente cliente) {
+    	if(clienteRepository.existsByCpf(cliente.getCpf())) {
     		throw new RuntimeException("CPF já existente");
     	}
-    	if(Cliente.getCpf() == null || Cliente.getEmail() == null || Cliente.getNome() == null || Cliente.getSenha() == null) {
+    	if(cliente.getCpf() == null || cliente.getEmail() == null || cliente.getNome() == null || cliente.getSenha() == null) {
     		throw new RuntimeException("Cliente não possui todas as caracteristicas necessarias");
     	}
-    	return clienteRepository.save(Cliente);
+    	return clienteRepository.save(cliente);
     }
     //UPDATE
     public Cliente alterar(Long id, Cliente updatedCliente) {
