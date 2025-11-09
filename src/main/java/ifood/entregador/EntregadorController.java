@@ -1,4 +1,5 @@
-package ifood.endereco;
+
+package ifood.entregador;
 
 import java.util.List;
 
@@ -13,25 +14,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/Endereco")
-public class EnderecoController {
+@RequestMapping("/api/Entregador")
+public class EntregadorController {
 	@Autowired
-	private EnderecoService enderecoService;
+	private EntregadorService EntregadorService;
 	
 	@PostMapping
-	public Endereco createEndereco(@RequestBody Endereco endereco) {
-		return enderecoService.salvar(endereco);
+	public Entregador createEntregador(@RequestBody Entregador Entregador) {
+		return EntregadorService.salvar(Entregador);
 	}
 	@GetMapping
-	public List<Endereco> listarEndereco() {
-		return enderecoService.listarEndereco();
+	public List<Entregador> listarEntregador() {
+		return EntregadorService.listarEntregador();
 	}
 	@PutMapping("/{id}")
-	public Endereco alterarEndereco(@PathVariable Long id, @RequestBody Endereco updatedEndereco) {
-		return enderecoService.alterar(id, updatedEndereco);
+	public Entregador alterarEntregador(@PathVariable Long id, @RequestBody Entregador updatedEntregador) {
+		return EntregadorService.alterar(id, updatedEntregador);
 	}
 	@DeleteMapping("/{id}")
-	public void excluirEndereco(@PathVariable Long id) {
-		enderecoService.delete(id);
+	public void excluirEntregador(@PathVariable Long id) {
+		EntregadorService.delete(id);
 	}
+	
 }

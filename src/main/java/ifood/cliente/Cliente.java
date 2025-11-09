@@ -1,9 +1,19 @@
 package ifood.cliente;
 
-import jakarta.persistence.*;
+import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.hibernate.annotations.CreationTimestamp;
 
-import java.time.Instant;
+//import ifood.pedido.Pedido;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Cliente {
@@ -18,6 +28,8 @@ public class Cliente {
     private Instant data_cadastro;
     private Status_Conta status_conta;
     private String cpf;
+//    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL) // Um Cliente tem Vários Pedidos
+//    private List<Pedido> pedidos = new ArrayList<>();
     
     public Cliente() {}
     //CREATE CONSTRUTOR
@@ -31,13 +43,13 @@ public class Cliente {
     	this.data_cadastro = Instant.now();
     }
     //UPDATE CONSTRUTOR
-    public Cliente(String nome, String senha_hash, String email, String cpf, Status_Conta status_Conta) {
+    public Cliente(String nome, String senha_hash, String email, String cpf, Status_Conta status_conta) {
     	this.nome = nome;
     	this.cpf = cpf;
     	this.email = email;
     	this.senha_hash = senha_hash;
     	
-    	this.status_conta = status_Conta;
+    	this.status_conta = status_conta;
     }
 
     public Long getIdCliente() {
