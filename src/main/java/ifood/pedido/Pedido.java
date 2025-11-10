@@ -22,9 +22,13 @@ public class Pedido {
 	@Column(name = "idPedido")
 	private Long idPedido;
 	private Status_Pedido status_pedido;
-	private Double valorFrete;
-	private Double valorTotal;
-	private Double valorSubTotal;
+	@Column(name = "valor_frete", columnDefinition="decimal(10,2)")
+	private Double valor_frete;
+	@Column(name = "valor_total", columnDefinition="decimal(10,2)")
+	private Double valor_total;
+	@Column(name = "valor_subTotal", columnDefinition="decimal(10,2)")
+	private Double valor_subTotal;
+	@Column(name = "data_hora_pedido")
 	private Instant data_hora_pedido;
 	
 	@ManyToOne // Vários Pedidos para um Cliente
@@ -41,11 +45,11 @@ public class Pedido {
 
 	public Pedido() {}
 	//Create Constructor
-	public Pedido(Double valorFrete, Double valorSubTotal) {
-		this.valorFrete = valorFrete;
-		this.valorSubTotal = valorSubTotal;
+	public Pedido(Double valor_frete, Double valor_subTotal) {
+		this.valor_frete = valor_frete;
+		this.valor_subTotal = valor_subTotal;
 		
-		this.valorTotal = valorFrete + valorSubTotal;
+		this.valor_total = valor_frete + valor_subTotal;
 		this.data_hora_pedido = Instant.now();
 		this.status_pedido = Status_Pedido.Pendente;
 	}
@@ -61,36 +65,36 @@ public class Pedido {
 		this.idPedido = idPedido;
 	}
 
-	public Status_Pedido getStatus_pedido() {
+	public Status_Pedido getStatusPedido() {
 		return status_pedido;
 	}
 
-	public void setStatus_pedido(Status_Pedido status_pedido) {
+	public void setStatusPedido(Status_Pedido status_pedido) {
 		this.status_pedido = status_pedido;
 	}
 
-	public Double getValorFrete() {
-		return valorFrete;
+	public Double getvalorFrete() {
+		return valor_frete;
 	}
 
-	public void setValorFrete(Double valorFrete) {
-		this.valorFrete = valorFrete;
+	public void setvalorFrete(Double valor_frete) {
+		this.valor_frete = valor_frete;
 	}
 
-	public Double getValorTotal() {
-		return valorTotal;
+	public Double getvalorTotal() {
+		return valor_total;
 	}
 
-	public void setValorTotal(Double valorTotal) {
-		this.valorTotal = valorTotal;
+	public void setvalorTotal(Double valor_total) {
+		this.valor_total = valor_total;
 	}
 
-	public Double getValorSubTotal() {
-		return valorSubTotal;
+	public Double getvalorSubTotal() {
+		return valor_subTotal;
 	}
 
-	public void setValorSubTotal(Double valorSubTotal) {
-		this.valorSubTotal = valorSubTotal;
+	public void setvalorSubTotal(Double valor_subTotal) {
+		this.valor_subTotal = valor_subTotal;
 	}
 
 	public Instant getData_hora_pedido() {

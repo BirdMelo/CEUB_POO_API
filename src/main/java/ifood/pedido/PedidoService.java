@@ -19,8 +19,8 @@ public class PedidoService {
     		throw new RuntimeException("Pedido já existente");
     	}
     	if(
-    			pedido.getValorFrete() == null ||
-    			pedido.getValorSubTotal() == null)
+    			pedido.getvalorFrete() == null ||
+    			pedido.getvalorSubTotal() == null)
     	{
     		throw new RuntimeException("pedido não possui todas as caracteristicas necessarias");
     	}
@@ -29,10 +29,10 @@ public class PedidoService {
     //UPDATE
     public Pedido alterar(Long id, Pedido updatedPedido) {
     	Pedido pedido = pedidoRepository.findById(id).orElseThrow(() -> new RuntimeException("Pedido inexistente"));
-    	if(updatedPedido.getValorFrete() != pedido.getValorFrete() || updatedPedido.getValorSubTotal() != pedido.getValorSubTotal()) {
+    	if(updatedPedido.getvalorFrete() != pedido.getvalorFrete() || updatedPedido.getvalorSubTotal() != pedido.getvalorSubTotal()) {
     		throw new RuntimeException("Não pode ter alterações nos valores.");
     	}
-    	pedido.setStatus_pedido(updatedPedido.getStatus_pedido());
+    	pedido.setStatusPedido(updatedPedido.getStatusPedido());
     	return pedidoRepository.save(pedido);
     }
     //DELETE
