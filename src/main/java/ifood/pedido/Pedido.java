@@ -8,6 +8,8 @@ import ifood.endereco.Endereco;
 import ifood.entregador.Entregador;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -21,6 +23,7 @@ public class Pedido {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "idPedido")
 	private Long idPedido;
+	@Enumerated(EnumType.STRING)
 	private Status_Pedido status_pedido;
 	@Column(name = "valor_frete", columnDefinition="decimal(10,2)")
 	private Double valor_frete;

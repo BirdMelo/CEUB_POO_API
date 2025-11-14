@@ -7,6 +7,8 @@ import ifood.pedido.Pedido;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -21,6 +23,7 @@ public class Entregador {
 	private String nome;
 	private String cnpj;
 	private Double avaliacaoMedia;
+	@Enumerated(EnumType.STRING)
 	private Status_Atual status_atual;
 	@OneToMany(mappedBy = "entregador", cascade = CascadeType.ALL) // Um Entregador tem vários Pedidos
     private List<Pedido> pedidos = new ArrayList<>();

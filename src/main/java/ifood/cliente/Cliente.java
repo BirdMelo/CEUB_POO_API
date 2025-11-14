@@ -10,6 +10,8 @@ import ifood.pedido.Pedido;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -26,6 +28,7 @@ public class Cliente {
     private String email;
     @CreationTimestamp
     private Instant data_cadastro;
+    @Enumerated(EnumType.STRING)
     private Status_Conta status_conta;
     private String cpf;
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL) // Um Cliente tem Vários Pedidos
