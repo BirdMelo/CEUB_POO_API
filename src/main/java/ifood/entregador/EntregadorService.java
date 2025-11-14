@@ -19,7 +19,7 @@ public class EntregadorService {
     	if(entregadorRepository.existsByCnpj(entregador.getCnpj())) {
     		throw new RuntimeException("CNPJ já existente");
     	}
-    	if(entregador.getCnpj() == null || entregador.getNome() == null || entregador.getStatus_atual() == null) {
+    	if(entregador.getCnpj() == null || entregador.getNome() == null || entregador.getStatusAtual() == null) {
     		throw new RuntimeException("O entregador não possui todas as caracteristicas necessarias");
     	}
     	return entregadorRepository.save(entregador);
@@ -36,7 +36,7 @@ public class EntregadorService {
     	}
     	entregador.setCnpj(updatedentregador.getCnpj());
     	entregador.setNome(updatedentregador.getNome());
-    	entregador.setStatus_atual(updatedentregador.getStatus_atual());
+    	entregador.setStatusAtual(updatedentregador.getStatusAtual());
     	
     	return entregadorRepository.save(entregador);
     }

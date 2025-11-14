@@ -5,7 +5,6 @@ import java.util.List;
 
 import ifood.pedido.Pedido;
 import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -18,13 +17,12 @@ import jakarta.persistence.OneToMany;
 public class Entregador {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "idEntregador")
 	private Long idEntregador;
 	private String nome;
 	private String cnpj;
 	private Double avaliacaoMedia;
 	@Enumerated(EnumType.STRING)
-	private Status_Atual status_atual;
+	private Status_Atual statusAtual;
 	@OneToMany(mappedBy = "entregador", cascade = CascadeType.ALL) // Um Entregador tem vários Pedidos
     private List<Pedido> pedidos = new ArrayList<>();
 	
@@ -33,18 +31,15 @@ public class Entregador {
 	public Entregador(String nome, String cnpj) {
 		this.nome = nome;
     	this.cnpj = cnpj;
-    	
-    	this.status_atual = Status_Atual.Online;
+    	this.statusAtual = Status_Atual.Online;
 	}
 	//Update Constructor
 	public Entregador(String nome, String cnpj, Status_Atual status_atual) {
 		this.nome = nome;
     	this.cnpj = cnpj;
     	
-    	this.status_atual = status_atual;
+    	this.statusAtual = status_atual;
 	}
-	
-	
 	
 	public List<Pedido> getPedidos() {
 		return pedidos;
@@ -76,10 +71,10 @@ public class Entregador {
 	public void setAvaliacaoMedia(Double avaliacaoMedia) {
 		this.avaliacaoMedia = avaliacaoMedia;
 	}
-	public Status_Atual getStatus_atual() {
-		return status_atual;
+	public Status_Atual getStatusAtual() {
+		return statusAtual;
 	}
-	public void setStatus_atual(Status_Atual status_atual) {
-		this.status_atual = status_atual;
+	public void setStatusAtual(Status_Atual statusAtual) {
+		this.statusAtual = statusAtual;
 	}
 }

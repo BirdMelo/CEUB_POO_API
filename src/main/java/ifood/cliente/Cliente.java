@@ -24,12 +24,12 @@ public class Cliente {
     @Column(name = "idCliente")
     private Long idCliente;
     private String nome;
-    private String senha_hash;
+    private String senhaHash;
     private String email;
     @CreationTimestamp
-    private Instant data_cadastro;
+    private Instant dataCadastro;
     @Enumerated(EnumType.STRING)
-    private Status_Conta status_conta;
+    private Status_Conta statusConta;
     private String cpf;
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL) // Um Cliente tem Vários Pedidos
     private List<Pedido> pedidos = new ArrayList<>();
@@ -37,97 +37,89 @@ public class Cliente {
 	public Cliente() {}
 	
     //CREATE CONSTRUTOR
-    public Cliente(String nome, String senha_hash, String email, String cpf) {
+    public Cliente(String nome, String senhaHash, String email, String cpf) {
     	this.nome = nome;
     	this.cpf = cpf;
     	this.email = email;
-    	this.senha_hash = senha_hash;
+    	this.senhaHash = senhaHash;
     	
-    	this.status_conta = Status_Conta.Ativo;
-    	this.data_cadastro = Instant.now();
+    	this.statusConta = Status_Conta.Ativo;
+    	this.dataCadastro = Instant.now();
     }
     
     //UPDATE CONSTRUTOR
-    public Cliente(String nome, String senha_hash, String email, String cpf, Status_Conta status_conta) {
+    public Cliente(String nome, String senhaHash, String email, String cpf, Status_Conta status_conta) {
     	this.nome = nome;
     	this.cpf = cpf;
     	this.email = email;
-    	this.senha_hash = senha_hash;
-    	
-    	this.status_conta = status_conta;
+    	this.senhaHash = senhaHash;
+    	this.statusConta = status_conta;
     }
-    
-    public String getSenha_hash() {
-		return senha_hash;
+
+	public Long getIdCliente() {
+		return idCliente;
 	}
-	public void setSenha_hash(String senha_hash) {
-		this.senha_hash = senha_hash;
+
+	public void setIdCliente(Long idCliente) {
+		this.idCliente = idCliente;
 	}
-	public Status_Conta getStatus_conta() {
-		return status_conta;
+
+	public String getNome() {
+		return nome;
 	}
-	public void setStatus_conta(Status_Conta status_conta) {
-		this.status_conta = status_conta;
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
+
+	public String getSenhaHash() {
+		return senhaHash;
+	}
+
+	public void setSenhaHash(String senhaHash) {
+		this.senhaHash = senhaHash;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Instant getDataCadastro() {
+		return dataCadastro;
+	}
+
+	public void setDataCadastro(Instant dataCadastro) {
+		this.dataCadastro = dataCadastro;
+	}
+
+	public Status_Conta getStatusConta() {
+		return statusConta;
+	}
+
+	public void setStatusConta(Status_Conta statusConta) {
+		this.statusConta = statusConta;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
 	public List<Pedido> getPedidos() {
 		return pedidos;
 	}
+
 	public void setPedidos(List<Pedido> pedidos) {
 		this.pedidos = pedidos;
 	}
-    public Long getIdCliente() {
-        return idCliente;
-    }
-
-    public void setIdCliente(Long idcliente) {
-        this.idCliente = idcliente;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getSenha() {
-        return senha_hash;
-    }
-
-    public void setSenha(String senha) {
-        this.senha_hash = senha;
-    }
-
-    public Instant getData_cadastro() {
-        return data_cadastro;
-    }
-
-    public void setData_cadastro(Instant data_cadastro) {
-        this.data_cadastro = data_cadastro;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Status_Conta getStatusConta() {
-        return status_conta;
-    }
-
-    public void setStatusConta(Status_Conta statusConta) {
-        this.status_conta = statusConta;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
+    
+    
+    
 }

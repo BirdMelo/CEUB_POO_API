@@ -24,15 +24,14 @@ public class Pedido {
 	@Column(name = "idPedido")
 	private Long idPedido;
 	@Enumerated(EnumType.STRING)
-	private Status_Pedido status_pedido;
-	@Column(name = "valor_frete", columnDefinition="decimal(10,2)")
-	private Double valor_frete;
-	@Column(name = "valor_total", columnDefinition="decimal(10,2)")
-	private Double valor_total;
-	@Column(name = "valor_subTotal", columnDefinition="decimal(10,2)")
-	private Double valor_subTotal;
-	@Column(name = "data_hora_pedido")
-	private Instant data_hora_pedido;
+	private Status_Pedido statusPedido;
+	@Column( columnDefinition="decimal(10,2)")
+	private Double valorFrete;
+	@Column( columnDefinition="decimal(10,2)")
+	private Double valorTotal;
+	@Column( columnDefinition="decimal(10,2)")
+	private Double valorSubTotal;
+	private Instant dataHoraPedido;
 	
 	@ManyToOne // Vários Pedidos para um Cliente
 	@JoinColumn(name = "idCliente") // Foreign key column
@@ -48,89 +47,71 @@ public class Pedido {
 
 	public Pedido() {}
 	//Create Constructor
-	public Pedido(Double valor_frete, Double valor_subTotal) {
-		this.valor_frete = valor_frete;
-		this.valor_subTotal = valor_subTotal;
+	public Pedido(Double valorFrete, Double valorSubTotal) {
+		this.valorFrete = valorFrete;
+		this.valorSubTotal = valorSubTotal;
 		
-		this.valor_total = valor_frete + valor_subTotal;
-		this.data_hora_pedido = Instant.now();
-		this.status_pedido = Status_Pedido.Pendente;
+		this.valorTotal = valorFrete + valorSubTotal;
+		this.dataHoraPedido = Instant.now();
+		this.statusPedido = Status_Pedido.Pendente;
 	}
 	//Update Constructor
 	public Pedido(Status_Pedido status_pedido) {
-		this.status_pedido = status_pedido;
+		this.statusPedido = status_pedido;
 	}
 	public Long getIdPedido() {
 		return idPedido;
 	}
-
 	public void setIdPedido(Long idPedido) {
 		this.idPedido = idPedido;
 	}
-
 	public Status_Pedido getStatusPedido() {
-		return status_pedido;
+		return statusPedido;
 	}
-
-	public void setStatusPedido(Status_Pedido status_pedido) {
-		this.status_pedido = status_pedido;
+	public void setStatusPedido(Status_Pedido statusPedido) {
+		this.statusPedido = statusPedido;
 	}
-
-	public Double getvalorFrete() {
-		return valor_frete;
+	public Double getValorFrete() {
+		return valorFrete;
 	}
-
-	public void setvalorFrete(Double valor_frete) {
-		this.valor_frete = valor_frete;
+	public void setValorFrete(Double valorFrete) {
+		this.valorFrete = valorFrete;
 	}
-
-	public Double getvalorTotal() {
-		return valor_total;
+	public Double getValorTotal() {
+		return valorTotal;
 	}
-
-	public void setvalorTotal(Double valor_total) {
-		this.valor_total = valor_total;
+	public void setValorTotal(Double valorTotal) {
+		this.valorTotal = valorTotal;
 	}
-
-	public Double getvalorSubTotal() {
-		return valor_subTotal;
+	public Double getValorSubTotal() {
+		return valorSubTotal;
 	}
-
-	public void setvalorSubTotal(Double valor_subTotal) {
-		this.valor_subTotal = valor_subTotal;
+	public void setValorSubTotal(Double valorSubTotal) {
+		this.valorSubTotal = valorSubTotal;
 	}
-
-	public Instant getData_hora_pedido() {
-		return data_hora_pedido;
+	public Instant getDataHoraPedido() {
+		return dataHoraPedido;
 	}
-
-	public void setData_hora_pedido(Instant data_hora_pedido) {
-		this.data_hora_pedido = data_hora_pedido;
+	public void setDataHoraPedido(Instant dataHoraPedido) {
+		this.dataHoraPedido = dataHoraPedido;
 	}
-
 	public Cliente getCliente() {
 		return cliente;
 	}
-
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-
 	public Entregador getEntregador() {
 		return entregador;
 	}
-
 	public void setEntregador(Entregador entregador) {
 		this.entregador = entregador;
 	}
-
 	public Endereco getEndereco() {
 		return endereco;
 	}
-
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
-	
 }
 
